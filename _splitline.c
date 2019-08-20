@@ -22,16 +22,16 @@ char **_splitline(char *line_buf)
 /*      Do if the arguments is not NULL */
 	if (line_buf != NULL)
 		return (NULL);
-               {
-                       token = strtok(line_buf, " ");
-                       while (token != NULL)
-                       {
-                               args[i] = token;
-			       i++;
-                               token = strtok(NULL, " ");
-                       }
-                       args[i] = NULL;
-               }
-
-       return (args);
+	printf("antes\n");
+        token = strtok(line_buf, " ");
+	while (token != NULL)
+	{
+		args[i] = token;
+		printf("%s\n", args[i]);
+		i++;
+		token = strtok(NULL, " ");
+	}
+	printf("depois\n");
+	args[i] = NULL;
+	return (args);
 }
