@@ -22,12 +22,12 @@ char **_splitline(char *line_buf)
 /*      Do if the arguments is not NULL */
 	if (line_buf == NULL)
 		return (NULL);
-        token = strtok(line_buf, " ");
+        token = strtok(line_buf, " \n\t");
 	while (token != NULL)
 	{
 		args[i] = token;
 		i++;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n\t");
 	}
 	args[i] = NULL;
 	return (args);

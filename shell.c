@@ -13,12 +13,6 @@ int main(void)
 		line = _getline();
 		args = _splitline(line);
 		status = _execute(args);
-		while (args[i])
-		{
-			printf("%s\n", args[i]);
-			i++;
-		}
-
 		free(line);
 		free(args);
 	} while (status);
