@@ -23,5 +23,6 @@ int _execute(char **args)
 		perror("ERROR: Child couldn't be created");
 	else
 		wait(&status);
+
 	return (1);
 }

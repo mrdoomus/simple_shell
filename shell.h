@@ -6,7 +6,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <fcntl.h>
+extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);
 int _execute(char **args);
+char *_strstr(char *haystack, char *needle);
+char *_pathfinder(char *command);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
 #endif
