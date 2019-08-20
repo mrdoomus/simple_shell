@@ -8,4 +8,5 @@
 #include <string.h>
 char **_splitline(char *line_buf);
 char *_getline(void);
+int _execute(char **args);
 #endif
