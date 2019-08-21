@@ -11,7 +11,8 @@ int _execute(char **args, int *flag)
 	int status;
 
 	pid = fork();
-
+	if ((_builtins(args)) == 0)
+		return (0);
 	if ((_strstr(args[0], "bin/")) == NULL)
 	{
 		*flag = 1;
