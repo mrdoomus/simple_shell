@@ -14,7 +14,7 @@ int _builtins(char **args)
 	switch (i)
 	{
 	case 0:
-		printf("exaitin dad beach\n");
+//		printf("exaitin dad beach\n");
 		return (0);
 	case 1:
 		return (1);

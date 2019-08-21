@@ -10,6 +10,8 @@ int _execute(char **args, int *flag)
 	pid_t pid;
 	int status;
 
+	if (args == NULL)
+		return (1);
 	pid = fork();
 	if ((_builtins(args)) == 0)
 		return (0);

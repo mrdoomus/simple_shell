@@ -4,7 +4,12 @@ char *_getline(void)
 {
 	char *line = NULL;
 	ssize_t len = 0;
-	getline(&line, &len, stdin);
+	if (getline(&line, &len, stdin) != -1)
+	{
+		if(line == "\n")
+			return (NULL);		
+		return (line);
+	}
 
-	return(line);
+	return (NULL);
 }
