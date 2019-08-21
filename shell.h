@@ -10,10 +10,9 @@
 extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);
-int _execute(char **args);
+int _execute(char **args, int *flag);
 char *_strstr(char *haystack, char *needle);
-char *_pathfinderTest(char *command);
-//char *_pathfinder(char *command);
+char *_pathfinder(char *command);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);

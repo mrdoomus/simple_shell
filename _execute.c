@@ -5,7 +5,7 @@
  *
  * Return: Always 0.
  */
-int _execute(char **args)
+int _execute(char **args, int *flag)
 {
 	pid_t pid;
 	int status;
@@ -13,7 +13,10 @@ int _execute(char **args)
 	pid = fork();
 
 	if ((_strstr(args[0], "bin/")) == NULL)
-		args[0] = _pathfinderTest(args[0]);
+	{
+		*flag = 1;
+		args[0] = _pathfinder(args[0]);
+	}
 	if (pid == 0)
 	{
 
