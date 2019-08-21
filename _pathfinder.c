@@ -1,24 +1,4 @@
 #include "shell.h"
-#include <string.h>
-/**
- *_strcpy - program thisgs
- *Result: always return 0
- *@dest: variable de entrada
- *@src: entrada source
- *Return: value depending on function
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i = 0;
-
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
 
 char *_pathfinder(char *command)
 {
@@ -32,13 +12,12 @@ char *_pathfinder(char *command)
 	char *auxtok;
 
 	aux = malloc(sizeof(char) * 1024);
-	if (file == NULL)
-		return (NULL);
+	if (aux == NULL)
+	return (NULL);
 
 	auxtok = malloc(sizeof(char) * 1024);
-	if (file == NULL)
+	if (auxtok == NULL)
 		return (NULL);
-
 
 	env = malloc(sizeof(char) * 1024);
 	if (env == NULL)
@@ -48,15 +27,15 @@ char *_pathfinder(char *command)
 	if (file == NULL)
 		return (NULL);
 	auxcat  = malloc(sizeof(char) * 1024);
-	if (file == NULL)
+	if (auxcat == NULL)
 		return (NULL);
 
 	while (environ[i])
 	{
-	        env = strstr(environ[i], "PATH=");
+	        env = _strstr(environ[i], "PATH=");
 		if (env != NULL)
 		{
-			aux = strcpy(aux, env);
+			aux = _strcpy(aux, env);
 			break;
 		}
 		i++;
@@ -65,21 +44,26 @@ char *_pathfinder(char *command)
 	token = strtok(aux, ":\n\r");
 	while (token != NULL)
 	{
-		auxcat = strcpy(auxcat, token);
+		auxcat = _strcpy(auxcat, token);
 		auxcat = strcat(auxcat, "/");
 	       	file = strcat(auxcat, command);
 		if (access(file, F_OK) != -1)
-			auxtok = strcpy(auxtok, file);
+			auxtok = _strcpy(auxtok, file);
 		token = strtok(NULL, ":\n\r");
 	}
-	printf("%s\n", auxtok);
-/*	free(env);
-	free(token);
-	free(auxcat);
-//	free(aux);
+/*	printf("%s\n", auxtok);
 	free(file);
-	printf("%s\n", auxtok);
-*/
+	printf("free file\n");
+//	free(auxcat);
+//	printf("free auxcarn\n");
+	free(token);
+	printf("free token\n");
+	free(aux);
+	printf("free aux\n");
+	free(env);
+	printf("free env\n");
+*/	printf("%s\n", auxtok);
+
 return (auxtok);
 }
 
@@ -90,6 +74,7 @@ int main(void)
 
 	path = _pathfinder(command);
 //	printf("%s\n", path);
+	
 	free (path);
 	return (0);
 }
