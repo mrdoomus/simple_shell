@@ -12,6 +12,8 @@ int _execute(char **args)
 
 	pid = fork();
 
+	if ((_strstr(args[0], "bin/")) == NULL)
+		args[0] = _pathfinderTest(args[0]);
 	if (pid == 0)
 	{
 
