@@ -3,11 +3,9 @@
 char *_getline(void)
 {
 	char *line = NULL;
-	ssize_t len = 0;
-	if (getline(&line, &len, stdin) != -1)
+	size_t len = 0;
+	if ((getline(&line, &len, stdin)) != -1)
 	{
-		if(line == "\n")
-			return (NULL);		
 		return (line);
 	}
 

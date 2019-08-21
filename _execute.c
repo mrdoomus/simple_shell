@@ -22,7 +22,6 @@ int _execute(char **args, int *flag)
 	}
 	if (pid == 0)
 	{
-
 		if (execve(args[0], args, NULL) == -1)
 			perror("ERROR: Couldn't execute program");
 		exit(EXIT_FAILURE);
