@@ -2,7 +2,7 @@
 
 char *_pathfinder(char *command)
 {
-	int i = 0;
+	int i = 0, j = 0;
 	char *env;
 	char *token;
 	char *file;
@@ -45,8 +45,8 @@ char *_pathfinder(char *command)
 	while (token != NULL)
 	{
 		auxcat = _strcpy(auxcat, token);
-		auxcat = strcat(auxcat, "/");
-	       	file = strcat(auxcat, command);
+		auxcat = _strcat(auxcat, "/");
+	       	file = _strcat(auxcat, command);
 		if (access(file, F_OK) != -1)
 			auxtok = _strcpy(auxtok, file);
 		token = strtok(NULL, ":\n\r");
@@ -62,7 +62,7 @@ char *_pathfinder(char *command)
 	printf("free aux\n");
 	free(env);
 	printf("free env\n");
-*/	printf("%s\n", auxtok);
+*///	printf("%s\n", auxtok);
 
 return (auxtok);
 }
@@ -71,10 +71,21 @@ int main(void)
 {
 	char *path;
 	char command[] = "ls";
+	int j = 0;
+	int flag = 0;
 
-	path = _pathfinder(command);
-//	printf("%s\n", path);
-	
-	free (path);
+	if ((_strstr(command, "bin/")) != NULL)
+	{
+		printf("%s command\n", command);
+		flag = 1;
+	}
+		j++;
+
+	if (flag != 1)
+	{
+		path = _pathfinder(command);
+		printf("%s function\n", path);
+		free (path);
+	}
 	return (0);
 }

@@ -1,7 +1,5 @@
 #include "shell.h"
 
-int _strlen(char *s);
-
 /**
  * _strcat - This function concatenates two strings.
  * @dest: is a pointer to a char.
