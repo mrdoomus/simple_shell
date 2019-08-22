@@ -9,17 +9,18 @@ int _execute(char **args, int *flag)
 {
 	pid_t pid;
 	int status;
+	int builtstatus = 0;
 
 	if (args == NULL)
 		return (1);
-	pid = fork();
-	if ((_builtins(args)) == 0)
-		return (0);
+	if ((builtstatus = _builtins(args)) < 2)
+		return (builtstatus);
 	if ((_strstr(args[0], "bin/")) == NULL)
 	{
 		*flag = 1;
 		args[0] = _pathfinder(args[0]);
 	}
+	pid = fork();
 	if (pid == 0)
 	{
 		if (execve(args[0], args, NULL) == -1)

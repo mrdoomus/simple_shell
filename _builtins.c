@@ -22,6 +22,6 @@ int _builtins(char **args)
 	case 3:
 		return (1);
 	default:
-		return (1);
+		return (2);
 	}
 }
