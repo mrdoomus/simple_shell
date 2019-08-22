@@ -9,14 +9,16 @@ int main(void)
 
 	do {
 		j = 0;
-		write(STDOUT_FILENO, "$ ", 2);;
+		write(STDOUT_FILENO, "$ ", 2);
 		line = _getline();
+		if (line == NULL)
+			break;
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j);
 		free(line);
 		if (j == 1)
-			free(args[0]);
+		       	free(args[0]);
 		free(args);
 	} while (status);
 

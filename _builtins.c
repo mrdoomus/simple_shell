@@ -20,7 +20,7 @@ int _builtins(char **args)
 	case 2:
 		return (1);
 	case 3:
-		while (*environ[j])
+		while (environ[j])
 		{
 			k = _strlen(environ[j]);
 			write(STDOUT_FILENO, environ[j], k);
