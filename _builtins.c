@@ -2,7 +2,7 @@
 
 int _builtins(char **args)
 {
-	int i = 0;
+	int i = 0, j = 0, k = 0;
 	char *builts[] = {"exit", "cd", "help", "env"};
 
 	while (builts[i])
@@ -20,6 +20,13 @@ int _builtins(char **args)
 	case 2:
 		return (1);
 	case 3:
+		while (*environ[j])
+		{
+			k = _strlen(environ[j]);
+			write(STDOUT_FILENO, environ[j], k);
+			write(STDOUT_FILENO, "\n", 1);
+			j++;
+		}
 		return (1);
 	default:
 		return (2);
