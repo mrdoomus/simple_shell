@@ -18,4 +18,5 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _builtins(char **args);
+void free_grid(char **grid, int height);
 #endif

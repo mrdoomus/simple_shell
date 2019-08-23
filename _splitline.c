@@ -12,6 +12,7 @@ char **_splitline(char *line_buf)
 {
        char **args = NULL;
        int i = 0;
+       /*int j = 0, k = 0;*/
        char *token = NULL;
 
        if (line_buf == NULL)
@@ -22,7 +23,8 @@ char **_splitline(char *line_buf)
 	if (args == NULL)
 		return (NULL);
 /*	for (j = 0; j < 1024; j++)
-		args[j] = NULL;
+		for (k = 0; k < 1024; k++)
+			args[j][k] = '\0';
 */
 /*      Do if the arguments is not NULL */
         token = strtok(line_buf, "\t\r\n ");
@@ -33,5 +35,6 @@ char **_splitline(char *line_buf)
 		token = strtok(NULL, "\t\r\n ");
 	}
 	args[i] = NULL;
+	free(token);
 	return (args);
 }
