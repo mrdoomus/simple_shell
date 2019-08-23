@@ -1,4 +1,19 @@
 #include "shell.h"
+void handler(int error)
+{
+	switch(error)
+	{
+		/*SIGINT*/
+	case 2:
+		write(1, "\n", 1);
+		write(STDOUT_FILENO, "$ ", 2);
+		break;
+		/*NO COMMAND*/
+	default:
+		write(2, "Issued command \n", 15);
+		break;
+	}
+}
 
 int main(void)
 {
@@ -6,6 +21,8 @@ int main(void)
 	char **args;
 	int status = 1;
 	int j = 0;
+
+	signal(SIGINT, handler);
 
 	do {
 		j = 0;
@@ -18,7 +35,7 @@ int main(void)
 			status = _execute(args, &j);
 		free(line);
 		if (j == 1)
-		       	free(args[0]);
+/*		       	free(args[0]);*/
 		free(args);
 	} while (status);
 

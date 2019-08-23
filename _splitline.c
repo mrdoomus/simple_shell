@@ -10,18 +10,21 @@
 
 char **_splitline(char *line_buf)
 {
-       char **args;
+       char **args = NULL;
        int i = 0;
-       char *token;
+       char *token = NULL;
 
+       if (line_buf == NULL)
+		return (NULL);
 /*      Do malloc to allocate the necesary memory to char**  */
-	args = (char **)malloc(sizeof(char) * 1024);
+	args = (char **)malloc(sizeof(char**) * 1024);
 /*      If malloc cant allocate memory just return NULL   */
 	if (args == NULL)
 		return (NULL);
+/*	for (j = 0; j < 1024; j++)
+		args[j] = NULL;
+*/
 /*      Do if the arguments is not NULL */
-	if (line_buf == NULL)
-		return (NULL);
         token = strtok(line_buf, "\t\r\n ");
 	while (token != NULL)
 	{

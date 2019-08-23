@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <fcntl.h>
+#include <signal.h>
 extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);

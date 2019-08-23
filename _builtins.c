@@ -3,7 +3,7 @@
 int _builtins(char **args)
 {
 	int i = 0, j = 0, k = 0;
-	char *builts[] = {"exit", "cd", "help", "env"};
+	char *builts[] = {"exit", "cd", "help", "env", NULL};
 
 	while (builts[i])
 	{
