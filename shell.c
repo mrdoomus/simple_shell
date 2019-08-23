@@ -35,7 +35,7 @@ int main(void)
 			status = _execute(args, &j);
 		free(line);
 		if (j == 1)
-/*		       	free(args[0]);*/
+		      	free(args[0]);
 		free(args);
 	} while (status);
 

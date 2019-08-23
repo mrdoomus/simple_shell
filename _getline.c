@@ -7,9 +7,6 @@ char *_getline(void)
 	int read = 0;
 
 	if ((read = getline(&line, &len, stdin)) != -1)
-	{
 		return (line);
-	}
-
 	return (NULL);
 }
