@@ -18,7 +18,7 @@ char **_splitline(char *line_buf)
        if (line_buf == NULL)
 		return (NULL);
 /*      Do malloc to allocate the necesary memory to char**  */
-	args = (char **)malloc(sizeof(char**) * 1024);
+	args = (char **)malloc(sizeof(char*) * 1024);
 /*      If malloc cant allocate memory just return NULL   */
 	if (args == NULL)
 		return (NULL);

@@ -37,20 +37,24 @@ char *_pathfinder(char *command)
 		tokens[j] = token;
 		j++;
 	}
-	tokens[j] = NULL;
-	j = 0;
-	while (tokens[j] != NULL)
+	k = 0;
+	while (tokens[k] != NULL)
 	{
-		_strcpy(path, tokens[j]);
+		_strcpy(path, tokens[k]);
 		_strcat(path, "/");
 		_strcat(path, command);
 		if (access(path, F_OK) != -1)
 			break;
-		j++;
+		k++;
 	}
-	free(token);
+
+
 	free(tokens);
+	free(token);
+	/*tokens = NULL;*/
 	free(envcpy);
-	/*Temporal	free(command);*/
+	envcpy = NULL;
+	free(command);
+	command = NULL;
 return (path);
 }

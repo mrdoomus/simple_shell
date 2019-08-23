@@ -17,8 +17,8 @@ void handler(int error)
 
 int main(void)
 {
-	char *line;
-	char **args;
+	char *line = NULL;
+	char **args = NULL;
 	int status = 1;
 	int j = 0;
 
@@ -33,9 +33,12 @@ int main(void)
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j);
-		free(line);
+		if (status == 0)
+			free(line);
 		if (j == 1)
-		      	free(args[0]);
+		{
+			free(args[0]);
+		}
 		free(args);
 	} while (status);
 

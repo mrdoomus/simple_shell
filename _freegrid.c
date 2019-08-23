@@ -8,7 +8,7 @@
  *Result: a matrix with H character
  *Return: a pointer if can do  the buffer
  */
-void free_grid(char **grid, int height)
+void _free_grid(char **grid, int height)
 {
 	int i = 0;
 
