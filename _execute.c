@@ -15,7 +15,7 @@ int _execute(char **args, int *flag)
 		return (1);
 	if ((builtstatus = _builtins(args)) < 2)
 		return (builtstatus);
-	if (access(args[0], F_OK & X_OK) == -1)
+	if (access(args[0], F_OK && X_OK) == -1)
 	{
 		args[0] = _pathfinder(args[0]);
 		*flag = 1;
