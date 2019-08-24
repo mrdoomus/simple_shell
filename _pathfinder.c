@@ -43,7 +43,7 @@ char *_pathfinder(char *command)
 		_strcpy(path, tokens[k]);
 		_strcat(path, "/");
 		_strcat(path, command);
-		if (access(path, F_OK) != -1)
+		if (access(path, F_OK & X_OK) != -1)
 			break;
 		k++;
 	}
