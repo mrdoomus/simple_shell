@@ -8,5 +8,6 @@ char *_getline(void)
 
 	if ((read = getline(&line, &len, stdin)) != -1)
 		return (line);
+	free(line);
 	return (NULL);
 }
