@@ -24,6 +24,21 @@ int main(void)
 
 	signal(SIGINT, handler);
 
+	if (isatty(STDIN_FILENO) != 1)
+	{
+		line = _getline();
+		if (line == NULL)
+			return (0);
+		args = _splitline(line);
+		if (args[0] != NULL)
+			status =_execute(args, &j);
+		if (status == 0)
+			free(line);
+		if (j == 1)
+			free(args[0]);
+		free(args);
+		return (status);
+	}
 	do {
 		j = 0;
 		write(STDOUT_FILENO, "$ ", 2);
@@ -36,9 +51,7 @@ int main(void)
 		if (status == 0)
 			free(line);
 		if (j == 1)
-		{
 			free(args[0]);
-		}
 		free(args);
 	} while (status);
 
