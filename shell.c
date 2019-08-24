@@ -24,7 +24,7 @@ int main(void)
 
 	signal(SIGINT, handler);
 
-	if (isatty(STDIN_FILENO) != 1)
+/*	if (isatty(STDIN_FILENO) != 1)
 	{
 		line = _getline();
 		if (line == NULL)
@@ -39,7 +39,7 @@ int main(void)
 		free(args);
 		return (status);
 	}
-	do {
+*/	do {
 		j = 0;
 		write(STDOUT_FILENO, "$ ", 2);
 		line = _getline();

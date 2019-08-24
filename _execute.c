@@ -15,7 +15,7 @@ int _execute(char **args, int *flag)
 		return (1);
 	if ((builtstatus = _builtins(args)) < 2)
 		return (builtstatus);
-	if ((_strstr(args[0], "bin/")) == NULL)
+	if ((_strstr(args[0], "/bin")) == NULL)
 	{
 		args[0] = _pathfinder(args[0]);
 		*flag = 1;
@@ -23,9 +23,12 @@ int _execute(char **args, int *flag)
 	pid = fork();
 	if (pid == 0)
 	{
+		printf("%s\n", args[0]);
 		if (execve(args[0], args, NULL) == -1)
 		{
 			perror("ERROR: Couldn't execute program");
+			free(args[0]);
+			free(args);
 			exit(EXIT_FAILURE);
 		}
 	}

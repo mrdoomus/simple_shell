@@ -30,7 +30,7 @@ char *_pathfinder(char *command)
 		return (NULL);
 	}
 	_strcpy(envcpy, environ[i]);
-	token = strtok(envcpy, ":\n\r");
+	token = strtok(envcpy, "=\n\r");
 	while (token != NULL)
 	{
 		token = strtok(NULL, ":\n\r");
