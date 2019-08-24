@@ -19,7 +19,7 @@ char *_pathfinder(char *command)
 		path[k] = '\0';
 	while (environ[i])
 	{
-		if ((_strstr(environ[i], "PATH=") != NULL))
+		if (_strcmp(environ[i], "PATH=") == 0)
 			break;
 		i++;
 	}
@@ -47,14 +47,9 @@ char *_pathfinder(char *command)
 			break;
 		k++;
 	}
-
-
 	free(tokens);
 	free(token);
-	/*tokens = NULL;*/
 	free(envcpy);
-	envcpy = NULL;
 	free(command);
-	command = NULL;
 return (path);
 }
