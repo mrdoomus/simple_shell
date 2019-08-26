@@ -1,12 +1,18 @@
 #include "shell.h"
 
+/**
+ *  _pathfinder - Searches and concatenates the execution path of command.
+ * @command: Command issued by the user
+ * Return: Returns the concatenated path for execution
+**/
+
 char *_pathfinder(char *command)
 {
 	int i = 0, j = 0, k = 0;
 	char *path = NULL, *envcpy = NULL, *token = NULL;
 	char **tokens = NULL;
 
-	tokens = (char**)malloc(sizeof(char*) * 1024);
+	tokens = (char **)malloc(sizeof(char *) * 1024);
 	if (tokens == NULL)
 		return (NULL);
 	path = malloc(sizeof(char) * 1024);

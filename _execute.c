@@ -1,10 +1,11 @@
 #include "shell.h"
 
 /**
- * main - execve example
- *
- * Return: Always 0.
- */
+ * _execute - Executes the given command and certain flags
+ * @args: The issued command
+ * @flag: Flags out if the command was fully written or needs pathfinding
+ * Return: Returns a status, 1 to continue and 0 to stop
+**/
 int _execute(char **args, int *flag)
 {
 	pid_t pid;
@@ -13,7 +14,8 @@ int _execute(char **args, int *flag)
 
 	if (args == NULL)
 		return (1);
-	if ((builtstatus = _builtins(args)) < 2)
+	builtstatus = _builtins(args);
+	if (builtstatus < 2)
 		return (builtstatus);
 	if (access(args[0], F_OK && X_OK) == -1)
 	{

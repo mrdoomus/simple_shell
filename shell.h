@@ -18,6 +18,9 @@ char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _builtins(char **args);
+void _cd(char **args);
+void _env(void);
 void _free_grid(char **grid, int height);
 int _strcmp(char *s1, char *s2);
+int _nonintmode(char *line, char **args);
 #endif
