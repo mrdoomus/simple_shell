@@ -1,4 +1,4 @@
-#include "shell.h"
+ #include "shell.h"
 
 /**
  * _getline - Receives a command typed by the user in the prompt
@@ -10,7 +10,7 @@ char *_getline(void)
 	size_t len = 0;
 	int read = getline(&line, &len, stdin);
 
-	if (read != -1)
+	if (read != EOF)
 		return (line);
 	free(line);
 	write(1, "\n", 1);

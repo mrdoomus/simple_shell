@@ -23,5 +23,5 @@ void _cd(char **args);
 void _env(void);
 void _free_grid(char **grid, int height);
 int _strcmp(char *s1, char *s2);
-int _nonintmode(char *line, char **args);
+void _nonintmode(char *line, char **args);
 #endif

@@ -25,7 +25,7 @@ int _execute(char **args, int *flag)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, environ) == -1)
 		{
 			perror("ERROR: Couldn't execute program");
 			free(args[0]);
@@ -34,12 +34,8 @@ int _execute(char **args, int *flag)
 		}
 	}
 	else if (pid < 0)
-	{
 		perror("ERROR: Child couldn't be created");
-	}
 	else
-	{
 		wait(&status);
-	}
-	return (1);
+return (1);
 }

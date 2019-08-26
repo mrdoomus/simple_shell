@@ -26,14 +26,14 @@ void _handler(int error)
  * @args: Splitted command sent or not no pathfinder and then, executed
  * Return: 1 if completed 0 if failed
 **/
-int _nonintmode(char *line, char **args)
+void _nonintmode(char *line, char **args)
 {
 	int status = 1, j;
 
 	j = 0;
 	line = _getline();
 	if (line == NULL)
-		return (0);
+		return;
 	args = _splitline(line);
 	if (args[0] != NULL)
 		status = _execute(args, &j);
@@ -45,7 +45,6 @@ int _nonintmode(char *line, char **args)
 		if (status != 0)
 			free(line);
 	free(args);
-	return (status);
 }
 
 /**
