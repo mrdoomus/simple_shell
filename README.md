@@ -86,6 +86,7 @@ drwxrwxr-x 8 vagrant vagrant  4096 Aug 27 02:40 .git
 -rw-rw-r-- 1 vagrant vagrant   406 Aug 27 02:40 _strcpy.c
 -rw-rw-r-- 1 vagrant vagrant   226 Aug 27 02:40 _strlen.c
 -rw-rw-r-- 1 vagrant vagrant   514 Aug 27 02:40 _strstr.c
+$
 ```
 
 * Changing directory
@@ -129,10 +130,10 @@ This is a table with the files and their respective description used to create t
 | _pathfinder.c | Finds path of execution for first argument (command) if ir wasn't typed fully |
 | _execute.c | Executes the the command and returns a status for continuing or stopping the main loop |
 | _builtins.c | Special commands innate of thell, no need of pathfinding |
-| _strcat.c | Concatenates one string into another _strcat(hello, world => helloworld) |
-| _strcmp.c | Compares two strings and returns 0 if equals _strcmp(hello, hello => 0) |
-| _strcpy.c | Copy one string into an empty pointer _strcpy(newName(empty), name(Camilo) => newName(Camilo)) |
-| _strlen.c | Returns the number of chars (without null) of a string _strlen(name(Camilo) => 5) |
+| _strcat.c | Concatenates one string into another **_strcat(hello, world => helloworld)** |
+| _strcmp.c | Compares two strings and returns 0 if equals **_strcmp(hello, hello => 0)** |
+| _strcpy.c | Copy one string into an empty pointer **_strcpy(newName(empty), name(Camilo) => newName(Camilo))** |
+| _strlen.c | Returns the number of chars (without null) of a string **_strlen(name(Camilo) => 5)** |
 | Makefile | Compiles and executes the shell |
 
 ## Version
@@ -141,7 +142,10 @@ This is a table with the files and their respective description used to create t
 ## Authors
 
 Juan Alberto Londoño Hernández <870@holbertonschool.com>
+(Juan pequeño)
+
 Camilo José Villegas Jiménez <872@holbertonschool.com>
+(DOOM)
 
 ## Acknowledgments
 
