@@ -12,7 +12,6 @@ extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);
 int _execute(char **args, int *flag);
-char *_strstr(char *haystack, char *needle);
 char *_pathfinder(char *command);
 char *_catpath(char **uncatpath, char *command);
 char *_strcat(char *dest, char *src);
@@ -21,7 +20,6 @@ char *_strcpy(char *dest, char *src);
 int _builtins(char **args);
 void _cd(char **args);
 void _env(void);
-void _free_grid(char **grid, int height);
 int _strcmp(char *s1, char *s2);
 void _nonintmode(char *line, char **args);
 #endif
