@@ -10,7 +10,7 @@ char *_getline(void)
 	size_t len = 0;
 	int read = getline(&line, &len, stdin);
 
-	if (read != EOF)
+	if (read != -1)
 		return (line);
 	free(line);
 	write(1, "\n", 1);
