@@ -6,7 +6,7 @@
  * Return: Returns the unconcatenated path for execution
 **/
 
-char *_pathfinder(char *command)
+char *_pathfinder(char *command, int mode)
 {
 	int i = 0, j = 0;
 	char *completepath = NULL, *envcpy = NULL, *token = NULL;
@@ -39,7 +39,8 @@ char *_pathfinder(char *command)
 	free(tokens);
 	free(token);
 	free(envcpy);
-	free(command);
+	if (mode == 0)
+		free(command);
 
 return (completepath);
 }

@@ -28,28 +28,27 @@ void _handler(int error)
 **/
 void _nonintmode(char *line, char **args)
 {
-	int status = 1, j;
+	int status = 1, j = 0;
 	size_t len = 0;
 
-	j = 0;
-	
 	while (getline(&line, &len, stdin) != EOF)
 	{
-		/*line = _getline();
+/*line = _getline();
 		if (line == NULL)
-			return;*/
+	       	return;*/
 		args = _splitline(line);
 		if (args[0] != NULL)
-			status = _execute(args, &j);
-		if (status == 0)
-			free(line);
+			status = _execute(args, &j, 1);
+ 		if (status == 0)
+/*		free(line);*/
 		if (j == 1)
 			free(args[0]);
-		/*else
+/*		else
 			if (status != 0)
-				free(line);*/
-		free(args);
+				free(line);
+*/		free(args);
 	}
+	free(line);
 }
 
 /**
@@ -85,7 +84,7 @@ int main(void)
 				break;
 			args = _splitline(line);
 			if (args[0] != NULL)
-				status = _execute(args, &j);
+				status = _execute(args, &j, 0);
 			if (status == 0)
 				free(line);
 			if (j == 1)

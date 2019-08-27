@@ -6,7 +6,7 @@
  * @flag: Flags out if the command was fully written or needs pathfinding
  * Return: Returns a status, 1 to continue and 0 to stop
 **/
-int _execute(char **args, int *flag)
+int _execute(char **args, int *flag, int mode)
 {
 	pid_t pid;
 	int status;
@@ -19,7 +19,7 @@ int _execute(char **args, int *flag)
 		return (builtstatus);
 	if (access(args[0], F_OK && X_OK) == -1)
 	{
-		args[0] = _pathfinder(args[0]);
+		args[0] = _pathfinder(args[0], mode);
 		*flag = 1;
 	}
 	pid = fork();

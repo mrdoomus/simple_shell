@@ -11,8 +11,8 @@
 extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);
-int _execute(char **args, int *flag);
-char *_pathfinder(char *command);
+int _execute(char **args, int *flag, int mode);
+char *_pathfinder(char *command, int mode);
 char *_catpath(char **uncatpath, char *command);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
