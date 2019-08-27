@@ -11,13 +11,23 @@ int _execute(char **args, int *flag, int mode)
 	pid_t pid;
 	int status;
 	int builtstatus = 0;
+	int k = 0;
+	int flagfinder = 0;
 
 	if (args == NULL)
 		return (1);
 	builtstatus = _builtins(args);
 	if (builtstatus < 2)
 		return (builtstatus);
-	if (access(args[0], F_OK && X_OK) == -1)
+	for (k = 0; *(args[0] + k) != '\0'; k++)
+	{
+		if (*(args[0] + k) == '/')
+		{
+			flagfinder = 1;
+			break;
+		}
+	}
+	if (flagfinder == 0)
 	{
 		args[0] = _pathfinder(args[0], mode);
 		*flag = 1;
