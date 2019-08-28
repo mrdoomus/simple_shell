@@ -8,7 +8,9 @@ char *_getline(void)
 {
 	char *line = NULL;
 	size_t len = 0;
-	int read = getline(&line, &len, stdin);
+	int read = 0;
+
+	read = getline(&line, &len, stdin);
 
 	if (read != -1)
 		return (line);

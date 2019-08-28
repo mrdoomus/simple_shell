@@ -11,6 +11,7 @@
 extern char **environ;
 char **_splitline(char *line_buf);
 char *_getline(void);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 int _execute(char **args, int *flag, int mode);
 char *_pathfinder(char *command, int mode);
 char *_catpath(char **uncatpath, char *command);
