@@ -84,7 +84,7 @@ int main(void)
 			write(STDOUT_FILENO, "$ ", 2);
 			line = _getline();
 			if (line == NULL)
-				break;
+				return (127);
 			args = _splitline(line);
 			if (args[0] != NULL)
 				status = _execute(args, &j, 0);
