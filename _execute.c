@@ -4,6 +4,7 @@
  * _execute - Executes the given command and certain flags
  * @args: The issued command
  * @flag: Flags out if the command was fully written or needs pathfinding
+ * @mode: Flag to select the mode, interactive or inninterative
  * Return: Returns a status, 1 to continue and 0 to stop
 **/
 int _execute(char **args, int *flag, int mode)

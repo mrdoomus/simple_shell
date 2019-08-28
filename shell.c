@@ -34,23 +34,23 @@ void _nonintmode(char *line, char **args)
 	while (getline(&line, &len, stdin) != EOF)
 	{
 /*line = _getline();
-		if (line == NULL)
-	       	return;*/
+  if (line == NULL)
+  return;*/
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j, 1);
- 		if (status == 0)
-/*		free(line);*/
-		if (j == 1)
-			free(args[0]);
-/*		else
-			if (status != 0)
-				free(line);
-*/		free(args);
+		if (status == 0)
+/*free(line);*/
+			if (j == 1)
+				free(args[0]);
+/*else
+  if (status != 0)
+  free(line);
+*/
+		free(args);
 	}
 	free(line);
 }
-
 /**
  * main - Loop for shell
  * 1. It receives a command typed by the user in the prompt (_getline)

@@ -3,12 +3,13 @@
 /**
  *  _pathfinder - Searches the execution path of command.
  * @command: Command issued by the user
+ * @mode:Flag to select the mode, interactive or inninterative
  * Return: Returns the unconcatenated path for execution
 **/
 
 char *_pathfinder(char *command, int mode)
 {
-	int i = 0, j = 0;
+	int i = 0, j = 0, flagcurr = 0;
 	char *completepath = NULL, *envcpy = NULL, *token = NULL;
 	char **tokens = NULL;
 
@@ -28,12 +29,16 @@ char *_pathfinder(char *command, int mode)
 
 	_strcpy(envcpy, environ[i]);
 	token = strtok(envcpy, "=\n\r");
+	if (environ[i][5] == ':')
+		flagcurr = 1;
 	while (token != NULL)
 	{
-		token = strtok(NULL, ":\n\r");
 		tokens[j] = token;
+		token = strtok(NULL, ":\n\r");
 		j++;
 	}
+	if (flagcurr == 1)
+		tokens[0] = "./";
 
 	completepath = _catpath(tokens, command);
 	free(tokens);
