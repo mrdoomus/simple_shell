@@ -19,12 +19,12 @@ char **_splitline(char *line_buf)
 	args = (char **)malloc(sizeof(char *) * 1024);
 	if (args == NULL)
 		return (NULL);
-	token = strtok(line_buf, "\t\r\n ");
+	token = _strtok(line_buf, "\t\r\n ");
 	while (token != NULL)
 	{
 		args[i] = token;
 		i++;
-		token = strtok(NULL, "\t\r\n ");
+		token = _strtok(NULL, "\t\r\n ");
 	}
 	args[i] = NULL;
 	free(token);

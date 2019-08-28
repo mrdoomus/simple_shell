@@ -24,4 +24,8 @@ void _env(void);
 int _strcmp(char *s1, char *s2);
 int _strcmp_path(char *s1, char *s2);
 void _nonintmode(char *line, char **args);
+int _strcspn(char *s, const char *delim);
+int _strspn(char *s, const char *delim);
+char *_strtok_r(char *s, const char *delim, char **save_str);
+char *_strtok(char *s, const char *delim);
 #endif
