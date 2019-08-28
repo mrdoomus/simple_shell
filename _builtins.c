@@ -59,7 +59,7 @@ int _builtins(char **args)
 
 	while (builts[i])
 	{
-		if (strcmp(args[0], builts[i]) == 0)
+		if (_strcmp(args[0], builts[i]) == 0)
 			break;
 		i++;
 	}
