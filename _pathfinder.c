@@ -28,13 +28,13 @@ char *_pathfinder(char *command, int mode)
 		return (NULL);
 
 	_strcpy(envcpy, environ[i]);
-	token = strtok(envcpy, "=\n\r");
+	token = _strtok(envcpy, "=\n\r");
 	if (environ[i][5] == ':')
 		flagcurr = 1;
 	while (token != NULL)
 	{
 		tokens[j] = token;
-		token = strtok(NULL, ":\n\r");
+		token = _strtok(NULL, ":\n\r");
 		j++;
 	}
 	if (flagcurr == 1)
