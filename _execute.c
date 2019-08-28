@@ -12,12 +12,13 @@ int _execute(char **args, int *flag, int mode)
 	pid_t pid;
 	int status;
 	int builtstatus = 0;
-	int k = 0, flagfinder = 0;
+	int k = 0;
+	int flagfinder = 0;
 
 	if (args == NULL)
 		return (1);
 	builtstatus = _builtins(args);
-	if (builtstatus < 3)
+	if (builtstatus < 2)
 		return (builtstatus);
 	for (k = 0; *(args[0] + k) != '\0'; k++)
 	{
@@ -47,5 +48,5 @@ int _execute(char **args, int *flag, int mode)
 		perror("ERROR: Child couldn't be created");
 	else
 		wait(&status);
-	return (1);
+return (1);
 }
