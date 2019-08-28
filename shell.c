@@ -33,11 +33,9 @@ void _nonintmode(char *line, char **args)
 
 	while (getline(&line, &len, stdin) != EOF)
 	{
-/*
- * line = _getline();
- * if (line == NULL)
- * return;
-*/
+
+		if (line == NULL)
+			exit(127);
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j, 1);
@@ -84,7 +82,7 @@ int main(void)
 			write(STDOUT_FILENO, "$ ", 2);
 			line = _getline();
 			if (line == NULL)
-				return (127);
+				exit(127);
 			args = _splitline(line);
 			if (args[0] != NULL)
 				status = _execute(args, &j, 0);
