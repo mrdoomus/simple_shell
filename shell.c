@@ -33,9 +33,11 @@ void _nonintmode(char *line, char **args)
 
 	while (getline(&line, &len, stdin) != EOF)
 	{
-/*line = _getline();
-  if (line == NULL)
-  return;*/
+/*
+ * line = _getline();
+ * if (line == NULL)
+ * return;
+*/
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j, 1);
@@ -43,9 +45,10 @@ void _nonintmode(char *line, char **args)
 /*free(line);*/
 			if (j == 1)
 				free(args[0]);
-/*else
-  if (status != 0)
-  free(line);
+/*
+ *else
+ *if (status != 0)
+ *free(line);
 */
 		free(args);
 	}
