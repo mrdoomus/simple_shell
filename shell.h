@@ -22,5 +22,6 @@ int _builtins(char **args);
 void _cd(char **args);
 void _env(void);
 int _strcmp(char *s1, char *s2);
+int _strcmp_path(char *s1, char *s2);
 void _nonintmode(char *line, char **args);
 #endif

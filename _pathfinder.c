@@ -19,7 +19,7 @@ char *_pathfinder(char *command, int mode)
 
 	while (environ[i])
 	{
-		if (_strcmp(environ[i], "PATH=") == 0)
+		if (_strcmp_path(environ[i], "PATH=") == 0)
 			break;
 		i++;
 	}
