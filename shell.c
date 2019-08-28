@@ -50,8 +50,6 @@ void _nonintmode(char *line, char **args)
 		free(args);
 	}
 	free(line);
-	if (status != 1)
-		exit(status);
 }
 /**
  * main - Loop for shell
