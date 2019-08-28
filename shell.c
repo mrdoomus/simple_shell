@@ -39,7 +39,6 @@ void _nonintmode(char *line, char **args)
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j, 1);
-		
 /*free(line);*/
 			if (j == 1)
 				free(args[0]);
@@ -51,8 +50,8 @@ void _nonintmode(char *line, char **args)
 		free(args);
 	}
 	free(line);
-	if (status == 2)
-		exit(2);
+	if (status != 1)
+		exit(status);
 }
 /**
  * main - Loop for shell
@@ -94,10 +93,10 @@ int main(void)
 				if (status == 1)
 					free(line);
 			free(args);
-			if (status == 2)
+			if (status != 1)
 			{
 				free(line);
-				exit(2);
+				exit(status);
 			}
 
 		} while (status);

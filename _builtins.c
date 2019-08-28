@@ -66,7 +66,7 @@ int _builtins(char **args)
 	switch (i)
 	{
 	case 0:
-		return (2);
+		return (0);
 	case 1:
 		_cd(args);
 		return (1);
