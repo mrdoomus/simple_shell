@@ -66,7 +66,7 @@ int _builtins(char **args)
 	switch (i)
 	{
 	case 0:
-		return (0);
+		return (2);
 	case 1:
 		_cd(args);
 		return (1);
@@ -74,6 +74,6 @@ int _builtins(char **args)
 		_env();
 		return (1);
 	default:
-		return (2);
+		return (3);
 	}
 }

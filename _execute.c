@@ -18,7 +18,7 @@ int _execute(char **args, int *flag, int mode)
 	if (args == NULL)
 		return (1);
 	builtstatus = _builtins(args);
-	if (builtstatus < 2)
+	if (builtstatus < 3)
 		return (builtstatus);
 	for (k = 0; *(args[0] + k) != '\0'; k++)
 	{
