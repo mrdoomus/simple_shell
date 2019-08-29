@@ -11,7 +11,6 @@ char *_getline(void)
 	int read = 0;
 
 	read = getline(&line, &len, stdin);
-
 	if (read != -1)
 		return (line);
 	free(line);
