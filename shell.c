@@ -58,8 +58,8 @@ int main(void)
 	char *line = NULL;
 	char **args = NULL;
 	int status = 1, j;
-	signal(SIGINT, _handler);
 
+	signal(SIGINT, _handler);
 	if (isatty(STDIN_FILENO) != 1)
 		_nonintmode(line, args);
 	else
