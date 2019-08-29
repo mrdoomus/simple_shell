@@ -8,12 +8,10 @@ void _handler(int error)
 {
 	switch (error)
 	{
-		/*SIGINT - Ctrl + C*/
 	case 2:
 		write(1, "\n", 1);
 		write(STDOUT_FILENO, "$ ", 2);
 		break;
-		/*NO COMMAND*/
 	default:
 		write(2, "Issued command \n", 15);
 		break;
@@ -33,23 +31,12 @@ void _nonintmode(char *line, char **args)
 
 	while (getline(&line, &len, stdin) != EOF)
 	{
-/*
- * line = _getline();
- * if (line == NULL)
- * return;
-*/
 		args = _splitline(line);
 		if (args[0] != NULL)
 			status = _execute(args, &j, 1);
 		if (status == 0)
-/*free(line);*/
 			if (j == 1)
 				free(args[0]);
-/*
- *else
- *if (status != 0)
- *free(line);
-*/
 		free(args);
 	}
 	free(line);
