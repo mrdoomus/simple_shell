@@ -17,15 +17,10 @@ int _strcmp(char *s1, char *s2)
 	{
 		resultado = s1[i] - s2[i];
 		if (resultado == 0)
-		{
 			i++;
-		}
 		else
-		{
 			c = 0;
-		}
 
 	}
-	return (resultado);
-
+return (resultado);
 }
