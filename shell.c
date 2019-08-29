@@ -58,14 +58,12 @@ int main(void)
 	char *line = NULL;
 	char **args = NULL;
 	int status = 1, j;
-
 	signal(SIGINT, _handler);
 
 	if (isatty(STDIN_FILENO) != 1)
 		_nonintmode(line, args);
 	else
 	{
-
 		do {
 			j = 0;
 			write(STDOUT_FILENO, "$ ", 2);
@@ -85,6 +83,5 @@ int main(void)
 			free(args);
 		} while (status);
 	}
-
 	return (0);
 }
