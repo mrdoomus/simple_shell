@@ -1,95 +1,78 @@
 #include "shell.h"
-
 /**
- * _strcspn - Find the positing where the delim is found in the string.
- * @s: String.
- * @delim: Delimiter.
- * Return: the position in the string.
+ * _strtok - tokenizes a string
+ * @s: string to be tokenized
+ * @deli: delimitator for the tokens
+ * Return: pointer to each token
  */
-int _strcspn(char *s, const char *delim)
+char *_strtok(char *s, char *deli)
 {
-	int counter = 0, i;
+	int c;
+	static char *str;
 
-	while (*s)
+	if (!s)
+		s = str;
+	c = *s++;
+	while (_strchr(deli, c))
 	{
-		for (i = 0; delim[i] != '\0'; i++)
-		{
-			if (*s == delim[i])
-				return (counter);
-		}
-		counter++;
-		s++;
+		if (c == 0)
+			return (0);
+		c = *s++;
 	}
-	return (counter);
-}
-
-/**
- * _strspn - Find the positing until the delim is equal to the string.
- * @s: String.
- * @delim: Delimiter.
- * Return: the position when delim is different to the string.
- */
-
-int _strspn(char *s, const char *delim)
-{
-	int i;
-
-	for (i = 0; (s[i] == delim[i]) && (s[i] != '\0' && delim[i] != '\0'); i++)
+	--s;
+	str = s + _strcspn(s, deli);
+	if (*str != 0)
 	{
-		;
+		*str = 0;
+		str++;
 	}
-	return (i);
-}
-/**
- * _strtok_r - Find the first token in a string until the dilimiter
- *             and save the rest of the string in save_str.
- * @s: String.
- * @delim: Delimiter.
- * @save_str: The rest of the string.
- * Return: First word tokenized.
- */
-char *_strtok_r(char *s, const char *delim, char **save_str)
-{
-	char *end;
-
-	if (s == NULL)
-		s = *save_str;
-
-	if (*s == '\0')
-	{
-		*save_str = s;
-		return (NULL);
-	}
-
-	s += _strspn(s, delim);
-
-	if (*s == '\0')
-	{
-		*save_str = s;
-		return (NULL);
-	}
-	end = s + _strcspn(s, delim);
-
-	if (*end == '\0')
-	{
-		*save_str = end;
-		return (s);
-	}
-
-	*end = '\0';
-	*save_str = end + 1;
 	return (s);
 }
 /**
- * _strtok - Tokenize a string in words separated by a delimiter.
- * @s: String.
- * @delim: Delimiter.
- * Return: Word tekenized.
+ * _strchr - locates character in string
+ * @s: string
+ * @b: character to locate
+ * Return: pointer to the first occurrence of the character
  */
-
-char *_strtok(char *s, const char *delim)
+char *_strchr(char *s, char b)
 {
-	static char *olds;
+	while (*s != 0)
+	{
+		if (*s == b)
+			return (s);
+		s++;
+	}
+	if (*s == b)
+		return (s);
+	return (0);
+}
 
-	return (_strtok_r(s, delim, &olds));
+/**
+ * _strcspn - gets the length of a prefix string
+ * @s: string
+ * @pre: prefix string
+ * Return: number of bytes in the initial seg of s
+ */
+unsigned int _strcspn(char *s, char *pre)
+{
+	unsigned int len = 0, i = 0;
+
+	while (s[len] != 0)
+	{
+		int flag = 0;
+
+		for (i = 0; pre[i] != 0; i++)
+		{
+			if (s[len] == pre[i])
+			{
+				flag = 1;
+				break;
+			}
+		}
+		if (flag == 0)
+			len++;
+		else
+			break;
+	}
+	return (len);
 }
